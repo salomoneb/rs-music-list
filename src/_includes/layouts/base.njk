@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- 👋 -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -18,11 +17,8 @@
 
   </head>
   <body>
-    <div class="container">
-      {{ content | safe }}
-      {%- for row in spreadsheet %}
-        <p>{{row.title}} - {{row.artist}}</p>
-      {% endfor %}
-    </div>
+    <main>
+      {{content | safe}}
+    </main>
   </body>
 </html>

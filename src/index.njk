@@ -1,0 +1,18 @@
+---
+layout: base
+---
+
+{%- for album in spreadsheet %}
+  <div class="album">
+    <h2>
+      <span class="album__title">{{album.title}}</span> - <span class="album__artist">{{album.artist}}</span>
+      <span class="album__year">({{album.year}})</span>
+    </h2>
+    <p class="album__listened">Have we listened to it?</p>
+    {% if album.listened == "yes" %}
+      <p>✅</p>
+    {% else %}
+      <p>❌</p>
+    {% endif %}
+  </div>
+{% endfor %}

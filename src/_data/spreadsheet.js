@@ -26,7 +26,7 @@ const spreadsheetData = new Promise((resolve, reject) => {
  * @returns Array
  */
 function dataToJson(headers, values) {
-  const [rank, title, artist, year, rating, thoughts] = headers;
+  const [rank, title, artist, year, listened, rating, thoughts] = headers;
   return values.map((row) => {
     const modifiedRow = cleanRow(row, headers);
 
@@ -35,8 +35,9 @@ function dataToJson(headers, values) {
       [title]: modifiedRow[1],
       [artist]: modifiedRow[2],
       [year]: modifiedRow[3],
-      [rating]: modifiedRow[4],
-      [thoughts]: modifiedRow[5],
+      [listened]: modifiedRow[4],
+      [rating]: modifiedRow[5],
+      [thoughts]: modifiedRow[6],
     };
   });
 }
