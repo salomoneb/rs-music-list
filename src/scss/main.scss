@@ -1,3 +1,28 @@
 body {
   color: #333;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+main {
+  margin: auto;
+  max-width: 48rem;
+  padding: 0 1rem;
+}
+
+summary {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.album:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.album__title {
+  font-style: italic;
+}
+
+.album__thoughts-text {
+  white-space: pre-wrap;
 }

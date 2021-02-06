@@ -4,7 +4,7 @@ const spreadsheetData = new Promise((resolve, reject) => {
   sheets.spreadsheets.values.get(
     {
       spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
-      range: "A1:F501",
+      range: "A1:G501",
     },
     (err, res) => {
       if (err) reject(err);
@@ -13,7 +13,6 @@ const spreadsheetData = new Promise((resolve, reject) => {
       const headers = data[0].map((header) => header.toLowerCase());
       const values = data.slice(1);
       const json = dataToJson(headers, values);
-
       resolve(json);
     }
   );
