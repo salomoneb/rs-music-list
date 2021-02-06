@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- 👋 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ metadata.description }}"/>
+    <title>{{ metadata.title }}</title>
+    <link rel="shortcut icon" href="{{ '/favicon.png' }}" />
+
+    {# Styles #}
+    <link rel="preload" as="style" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+    {# Scripts #}
+    {# <script src="/js/favicon.js" type="module" async></script> #}
+
+  </head>
+  <body>
+    <div class="container">
+      {{ content | safe }}
+      {%- for row in spreadsheet %}
+        <p>{{row.title}} - {{row.artist}}</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>

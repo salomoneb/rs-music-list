@@ -1,0 +1,11 @@
+@use "functions";
+
+@mixin generate-font-sizes($base, $scale, $max) {
+  @for $i from 1 through $max {
+    --text-grow-#{$i}: calc(#{$base} * #{functions.pow($scale, $i)});
+  }
+
+  @for $i from 1 through $max {
+    --text-shrink-#{$i}: calc(#{$base} / #{functions.pow($scale, $i)});
+  }
+}
