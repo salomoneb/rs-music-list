@@ -1,3 +1,6 @@
+require("dotenv").config();
+const htmlMinTransform = require("./src/transforms/html-min-transform");
+
 module.exports = function (config) {
   // Sass
   config.addWatchTarget("./src/scss");
