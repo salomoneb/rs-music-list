@@ -6,6 +6,7 @@ module.exports = function (config) {
   config.addWatchTarget("./src/scss");
 
   // Passthrough
+  config.addPassthroughCopy("./src/js");
   config.addPassthroughCopy("./src/fonts");
   config.addPassthroughCopy({ "./src/static/favicon.png": "favicon.png" });
 

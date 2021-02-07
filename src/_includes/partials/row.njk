@@ -1,6 +1,6 @@
 {% macro album(album) %}
-  <li class="album">
-    {% set listened = album.listened %}
+  {% set listened = album.listened %}
+  <li class="album" data-listened="{{listened}}" >
     <h2 class="album__heading">
       <span class="album__rank">{{album.rank}}. </span>
       <span class="album__title">{{album.title}}</span> - <span class="album__artist">{{album.artist}} </span><span class="album__year">({{album.year}}) </span><span class="album__listened-answer">{% if listened %}✅{% else %}❌{% endif %}</span>

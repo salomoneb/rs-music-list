@@ -72,3 +72,15 @@ main {
     background-color: #69b3a5;
   }
 }
+
+[data-filter="listened"] {
+  & > [data-listened="false"] {
+    display: none;
+  }
+}
+
+[data-filter="unlistened"] {
+  & > [data-listened="true"] {
+    display: none;
+  }
+}
