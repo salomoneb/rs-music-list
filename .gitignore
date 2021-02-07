@@ -1,4 +1,6 @@
 .env
+.DS_Store
+*.DS_Store
 dist
 node_modules
 src/token.json

@@ -5,16 +5,14 @@
       <span class="album__title">{{album.title}}</span> - <span class="album__artist">{{album.artist}}</span>
       <span class="album__year">({{album.year}})</span>
       <span class="album__listened-answer">{% if listened %}✅{% else %}❌{% endif %}</span>
+      {% if album.rating %}<span class="album__rating">{{album.rating}}</span>{% endif %}
     </h2>
 
-    {% if listened %}
-      {% if album.rating %}<p class="album__rating">Rating: {{album.rating}}</p>{% endif %}
-      {% if album.thoughts %}
-        <details class="album__thoughts">
-          <summary class="album__thoughts-summary">What did we think?</summary>
-          <p class="album__thoughts-text">{{album.thoughts | safe}}</p>
-        </details>
-      {% endif %}
+    {% if album.thoughts %}
+      <details class="album__thoughts">
+        <summary class="album__thoughts-summary">What did we think?</summary>
+        <p class="album__thoughts-text">{{album.thoughts | safe}}</p>
+      </details>
     {% endif %}
 
   </div>

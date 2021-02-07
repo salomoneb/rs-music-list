@@ -1,3 +1,5 @@
+@use "fonts";
+
 body {
   color: #333;
   font-family: "Source Sans Pro", sans-serif;
@@ -5,17 +7,29 @@ body {
 
 main {
   margin: auto;
-  max-width: 48rem;
+  max-width: 60rem;
   padding: 0 1rem;
 }
 
-summary {
-  display: inline-block;
-  cursor: pointer;
+.site-heading {
+  font-family: "Lora";
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+
+.album__heading {
+  align-items: baseline;
+  display: flex;
+  font-size: 1.2rem;
+  white-space: pre;
+}
+
+.album__rating {
+  margin-left: auto;
 }
 
 .album:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px dotted #ccc;
   padding-bottom: 1rem;
 }
 
@@ -23,6 +37,13 @@ summary {
   font-style: italic;
 }
 
-.album__thoughts-text {
-  white-space: pre-wrap;
+.album__thoughts {
+  &-summary {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  &-text {
+    white-space: pre-wrap;
+  }
 }
