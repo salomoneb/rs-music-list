@@ -60,6 +60,7 @@ select {
 
 .album__info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   .album__heading {
@@ -68,7 +69,7 @@ select {
     flex-wrap: wrap;
     font-size: 1.3rem;
     margin: 0;
-    white-space: pre;
+    white-space: pre-wrap;
   }
 
   .album__title {
