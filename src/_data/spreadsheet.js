@@ -26,9 +26,9 @@ const spreadsheetData = new Promise((resolve, reject) => {
  */
 function dataToJson(headers, values) {
   const [rank, title, artist, year, listened, rating, thoughts] = headers;
+
   return values.map((row) => {
     const modifiedRow = cleanRow(row, headers);
-
     return {
       [rank]: modifiedRow[0],
       [title]: modifiedRow[1],
@@ -36,7 +36,7 @@ function dataToJson(headers, values) {
       [year]: modifiedRow[3],
       [listened]: modifiedRow[4],
       [rating]: modifiedRow[5],
-      [thoughts]: modifiedRow[6],
+      [thoughts]: preserveLineBreaks(modifiedRow[6]),
     };
   });
 }
@@ -54,6 +54,12 @@ function cleanRow(row, headers) {
     }
     return row[headerIndex];
   });
+}
+
+function preserveLineBreaks(text) {
+  if (!text) return text;
+
+  return text.replace(/\n/g, "<br/>");
 }
 
 module.exports = async function () {
