@@ -26,7 +26,6 @@ const spreadsheetData = new Promise((resolve, reject) => {
  */
 function dataToJson(headers, values) {
   const [rank, title, artist, year, listened, rating, thoughts] = headers;
-
   return values.map((row) => {
     const modifiedRow = cleanRow(row, headers);
     return {
@@ -34,7 +33,7 @@ function dataToJson(headers, values) {
       [title]: modifiedRow[1],
       [artist]: modifiedRow[2],
       [year]: modifiedRow[3],
-      [listened]: modifiedRow[4],
+      [listened]: convertToBoolean(modifiedRow[4]),
       [rating]: modifiedRow[5],
       [thoughts]: preserveLineBreaks(modifiedRow[6]),
     };
@@ -60,6 +59,10 @@ function preserveLineBreaks(text) {
   if (!text) return text;
 
   return text.replace(/\n/g, "<br/>");
+}
+
+function convertToBoolean(str) {
+  return str === "TRUE" ? true : false;
 }
 
 module.exports = async function () {

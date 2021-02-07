@@ -7,14 +7,18 @@ body {
 
 main {
   margin: auto;
-  max-width: 60rem;
+  max-width: 50rem;
   padding: 0 1rem;
 }
 
 .site-heading {
-  font-family: "Lora";
-  font-size: 3rem;
-  margin-bottom: 4rem;
+  font-family: "Lora", serif;
+  font-size: 2.5rem;
+}
+
+.album__list {
+  list-style: none;
+  padding-inline-start: 0;
 }
 
 .album__heading {
@@ -45,5 +49,23 @@ main {
 
   &-text {
     white-space: pre-wrap;
+  }
+}
+
+.intro {
+  margin-bottom: 3rem;
+}
+
+.tag {
+  color: white;
+  padding: 0 6px;
+  border-radius: 6px;
+
+  &.katharine {
+    background-color: #8e69b3;
+  }
+
+  &.salomone {
+    background-color: #69b3a5;
   }
 }
