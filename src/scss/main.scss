@@ -44,31 +44,41 @@ select {
   }
 }
 
-.album__list {
-  list-style: none;
-  padding-inline-start: 0;
-}
-
-.album__heading {
-  align-items: baseline;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 1.3rem;
-  margin-bottom: 0;
-  white-space: pre;
-}
-
-.album__rating {
-  margin-left: auto;
-}
-
 .album:not(:last-child) {
   border-bottom: 1px dotted #ccc;
   padding-bottom: 1rem;
 }
 
-.album__title {
-  font-style: italic;
+.album:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.album__list {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.album__info {
+  display: flex;
+  justify-content: space-between;
+
+  .album__heading {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+    margin: 0;
+    white-space: pre;
+  }
+
+  .album__title {
+    display: inline-block;
+    font-style: italic;
+  }
+}
+
+.album__rating {
+  font-style: normal;
 }
 
 .album__thoughts {
