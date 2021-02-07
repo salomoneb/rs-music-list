@@ -37,6 +37,10 @@ select {
 .site-heading {
   font-family: "Lora", serif;
   font-size: 2.5rem;
+
+  @media (max-width: 48rem) {
+    font-size: 2rem;
+  }
 }
 
 .album__list {
@@ -47,6 +51,7 @@ select {
 .album__heading {
   align-items: baseline;
   display: flex;
+  flex-wrap: wrap;
   font-size: 1.3rem;
   margin-bottom: 0;
   white-space: pre;
