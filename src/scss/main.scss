@@ -24,7 +24,8 @@ main {
 .album__heading {
   align-items: baseline;
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  margin-bottom: 0;
   white-space: pre;
 }
 
@@ -42,6 +43,8 @@ main {
 }
 
 .album__thoughts {
+  margin-top: 1rem;
+
   &-summary {
     cursor: pointer;
     display: inline-block;
@@ -53,7 +56,7 @@ main {
 }
 
 .intro {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .tag {
