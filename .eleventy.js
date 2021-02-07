@@ -8,6 +8,7 @@ module.exports = function (config) {
   // Passthrough
   config.addPassthroughCopy("./src/js");
   config.addPassthroughCopy("./src/fonts");
+  config.addPassthroughCopy("./src/static");
   config.addPassthroughCopy({ "./src/static/favicon.png": "favicon.png" });
 
   // Aliases
