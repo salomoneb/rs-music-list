@@ -6,6 +6,9 @@ module.exports = {
       year: "numeric",
       day: "numeric",
       month: "long",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
     };
     return date.toLocaleString("en-US", options);
   },
