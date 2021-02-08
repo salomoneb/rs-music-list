@@ -102,6 +102,15 @@ select {
 
 .intro {
   margin-bottom: 2rem;
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    font-style: italic;
+  }
 }
 
 .tag {
@@ -116,11 +125,6 @@ select {
   &.salomone {
     background-color: #69b3a5;
   }
-}
-
-.last-updated {
-  font-size: 0.9rem;
-  font-style: italic;
 }
 
 [data-filter="listened"] {
