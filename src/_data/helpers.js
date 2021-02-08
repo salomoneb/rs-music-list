@@ -9,6 +9,7 @@ module.exports = {
       hour: "numeric",
       minute: "numeric",
       second: "numeric",
+      timeZone: "America/New_York",
     };
     return date.toLocaleString("en-US", options);
   },
