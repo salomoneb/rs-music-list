@@ -3,6 +3,7 @@
 
 $textColor: #333;
 $linkColor: #2a74b3;
+$rowGray: #ddd;
 
 body {
   color: $textColor;
@@ -44,13 +45,16 @@ select {
   }
 }
 
-.album:not(:last-child) {
-  border-bottom: 1px dotted #ccc;
-  padding-bottom: 1rem;
-}
+.album {
+  padding: 1rem;
 
-.album:not(:first-child) {
-  margin-top: 1rem;
+  &:nth-child(odd) {
+    background: color.change($rowGray, $alpha: 0.4);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .album__list {
