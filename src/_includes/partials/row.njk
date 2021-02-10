@@ -5,7 +5,7 @@
       <h2 class="album__heading">
         {{album.rank}}. <span class="album__title">{{album.title}}</span> - {{album.artist}} ({{album.year}})
       </h2>
-      <span class="album__listened-icon">
+      <span class="album__listened-icon" aria-label="{% if listened %}Listened icon - album has been listened to{% else %}Listened icon - album has not been listened to{% endif %}">
         {% if listened %}✅{% else %}❌{% endif %}
       </span>
     </div>
