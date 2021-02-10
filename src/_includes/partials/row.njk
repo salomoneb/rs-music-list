@@ -1,18 +1,24 @@
 {% macro album(album) %}
   {% set listened = album.listened %}
-  <li class="album" data-listened="{{listened}}" >
+  <li class="album" data-listened="{{listened}}" id="{{album.title | slug}}" >
     <div class="album__info">
       <h2 class="album__heading">
-        {{album.rank}}. <span class="album__title">{{album.title}}</span> - {{album.artist}} ({{album.year}}) <span class="album__listened-answer">{% if listened %}✅{% else %}❌{% endif %}</span>
+        {{album.rank}}. <span class="album__title">{{album.title}}</span> - {{album.artist}} ({{album.year}})
       </h2>
-      {% if album.rating %}
-        <i class="album__rating">{{album.rating}}</i>{% endif %}
-      {% if album.thoughts %}
+      <span class="album__listened-icon">
+        {% if listened %}✅{% else %}❌{% endif %}
+      </span>
     </div>
-      <details class="album__thoughts">
-        <summary class="album__thoughts-summary">What did we think?</summary>
-        <p class="album__thoughts-text">{{album.thoughts | safe}}</p>
-      </details>
-    {% endif %}
-  </li>
+  </div>
+  {% if album.rating %}
+    <p class="album__rating" aria-label="Album rating">{{album.rating}}
+    </p>
+  {% endif %}
+  {% if album.thoughts %}
+    <details class="album__thoughts">
+      <summary class="album__thoughts-summary">What did we think?</summary>
+      <p class="album__thoughts-text">{{album.thoughts | safe}}</p>
+    </details>
+  {% endif %}
+</li>
 {% endmacro %}
