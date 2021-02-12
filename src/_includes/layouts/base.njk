@@ -8,11 +8,21 @@
     <title>{{ metadata.title }}</title>
     <link rel="shortcut icon" href="{{ '/favicon.png' }}" />
 
-    {# Styles #}
+    {# Preload #}
     <link rel="preload" as="style" href="/css/main.css" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/source-sans-pro/source-sans-pro-v14-latin-regular.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/source-sans-pro/source-sans-pro-v14-latin-italic.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/source-sans-pro/source-sans-pro-v14-latin-700.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/source-sans-pro/source-sans-pro-v14-latin-700italic.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/lora/lora-v17-latin-regular.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/lora/lora-v17-latin-700.woff2" />
+    <link rel="modulepreload" href="/js/index.js">
+
+    {# Styles #}
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     {# JS #}
+    <link rel="preload" as="style" href="/css/main.css" />
     <script src="/js/index.js" type="module" defer></script>
   </head>
   <body>
