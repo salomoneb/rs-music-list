@@ -4,14 +4,18 @@ layout: base
 
 <div class="intro">
   <h1 class="site-heading">Untitled <span>Katharine</span> and <span>Salomone</span> Music Listening Project</h1>
+  {% set currentAlbum = spreadsheet[1] %}
+  <p class="current-listening">🎵 Currently listening to: <a href="#{{currentAlbum | slug}}">{{ currentAlbum }}</a> 🎵</span></p>
+
   <p>A definitely successful attempt to make our way through the <a href="https://www.rollingstone.com/music/music-lists/best-albums-of-all-time-1062063/" target="_blank" rel="noreferrer">2020 Rolling Stone "500 Greatest Albums"</a> list. A new random album each week.</p>
-  <p class="last-updated">Last updated: {{ helpers.getDate() }} </p>
+  <p class="last-updated">Last updated: {{ helpers.getDate() }}
+  </p>
 </div>
 
 <select-filter></select-filter>
 {# <search-input></search-input> #}
 <ul class="album__list" data-filter="all">
-  {%- for row in spreadsheet %}
+  {%- for row in spreadsheet[0] %}
     {% import "partials/row.njk" as rowPartial %}
     {{ rowPartial.album(row) }}
   {% endfor %}

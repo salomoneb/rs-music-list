@@ -1,28 +1,47 @@
 const sheets = require("../providers/auth");
 
 const spreadsheetData = new Promise((resolve, reject) => {
-  sheets.spreadsheets.values.get(
+  sheets.spreadsheets.values.batchGet(
     {
       spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
-      range: "A1:G501",
+      ranges: ["A1:G501", "K3:K3"],
     },
     (err, res) => {
       if (err) reject(err);
-
-      const data = res.data.values;
-      const headers = data[0].map((header) => header.toLowerCase());
-      const values = data.slice(1);
-      const json = dataToJson(headers, values);
-      resolve(json);
+      const [albumData, currentAlbumData] = res.data.valueRanges;
+      const currentAlbumString = handleCurrentAlbum(currentAlbumData.values);
+      const albumJson = handleAlbumData(albumData.values);
+      resolve([albumJson, currentAlbumString]);
     }
   );
 });
 
 /**
+ * Cleaning handler for current album name
+ * @param {Array} currentAlbumData
+ * @returns {String}
+ */
+function handleCurrentAlbum(currentAlbumData) {
+  return currentAlbumData[0][0].split(" - ")[1];
+}
+
+/**
+ * Cleaning handler for album data
+ * @param {Array} albumData
+ * @returns {JSON}
+ */
+function handleAlbumData(albumData) {
+  const headers = albumData[0].map((header) => header.toLowerCase());
+  const values = albumData.slice(1);
+
+  return dataToJson(headers, values);
+}
+
+/**
  * Convert returned data to JSON
  * @param {Array} headers
  * @param {Array} values
- * @returns Array
+ * @returns {Array}
  */
 function dataToJson(headers, values) {
   const [rank, title, artist, year, listened, rating, thoughts] = headers;
@@ -44,7 +63,7 @@ function dataToJson(headers, values) {
  * Set null values if cells are empty/undefined
  * @param {Array} row
  * @param {Array} headers
- * @returns Array
+ * @returns {Array}
  */
 function cleanRow(row, headers) {
   return headers.map((header, headerIndex) => {

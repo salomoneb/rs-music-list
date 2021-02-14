@@ -118,6 +118,20 @@ a {
     font-size: 0.9rem;
     font-style: italic;
   }
+
+  .current-listening {
+    border: 1px dashed;
+    border-radius: 3px;
+    display: inline-block;
+    font-family: "Lora", serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0.5rem;
+
+    @media (min-width: $bp) {
+      padding: 0.5rem 1rem;
+    }
+  }
 }
 
 .tag {
