@@ -1,6 +1,13 @@
 {% macro album(album) %}
   {% set listened = album.listened %}
-  <li class="album" data-listened="{{listened}}" id="{{album.title | slug}}" >
+  <li class="album"
+    id="{{album.title | slug}}"
+    data-listened="{{listened}}"
+    data-rank="{{album.rank}}"
+    data-title="{{album.title}}"
+    data-artist="{{album.artist}}"
+    data-year="{{album.year}}"
+    >
     <div class="album__info">
       <h2 class="album__heading">
         {{album.rank}}. <span class="album__title">{{album.title}}</span> - {{album.artist}} ({{album.year}})
