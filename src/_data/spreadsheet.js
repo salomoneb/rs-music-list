@@ -85,5 +85,9 @@ function convertToBoolean(str) {
 }
 
 module.exports = async function () {
-  return await spreadsheetData;
+  try {
+    return await spreadsheetData;
+  } catch (err) {
+    return err;
+  }
 };

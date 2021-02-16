@@ -10,6 +10,7 @@ class SearchInput extends HTMLElement {
       const artist = album.dataset.artist;
       const year = album.dataset.year;
       const formattedAlbumInfo = `${rank}. ${title} - ${artist} (${year})`;
+
       this.allNodes.set(formattedAlbumInfo, album);
     });
   }
@@ -34,7 +35,7 @@ class SearchInput extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="search">
-        <label class="search__label" for="search">Search:</label>
+        <label class="search__label sr-only" for="search">Search:</label>
         <input type="text" name="search__input" class="search__input" id="search">
       </div>
     `;
