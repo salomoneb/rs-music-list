@@ -79,6 +79,11 @@ a {
 .album {
   padding: 1rem;
 
+  &__rank {
+    font-family: "Lora", serif;
+    margin-right: 0.5rem;
+  }
+
   &:nth-child(odd) {
     background: color.change($rowGray, $alpha: 0.4);
   }

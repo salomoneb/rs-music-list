@@ -16,7 +16,7 @@ layout: base
   <select-filter></select-filter>
 </div>
 
-<p class="album__current">🎵 Currently listening to: <a href="#{{currentAlbum | slug}}">{{ currentAlbum }}</a></p>
+<p class="album__current">🎧 Currently listening to: <a href="#{{currentAlbum | slug}}">{{ currentAlbum }}</a></p>
 <ul class="album__list" data-filter="all">
 {%- for row in spreadsheet[0] %}
   {% import "partials/row.njk" as rowPartial %}
