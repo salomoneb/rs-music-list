@@ -103,6 +103,7 @@ a {
 .album__info {
   align-items: baseline;
   grid-template-columns: 6ch 1fr auto;
+  grid-column-gap: 0.5rem;
 
   @media (min-width: $bp-sm) {
     display: grid;
@@ -110,11 +111,6 @@ a {
 
   & > *:not(.album__thoughts) {
     font-family: "Lora", sans-serif;
-    font-size: 1.1rem;
-
-    @media (min-width: $bp-md) {
-      font-size: 1.2rem;
-    }
   }
 }
 
@@ -124,9 +120,14 @@ a {
 }
 
 .album__heading {
+  font-size: 1.1rem;
   font-weight: 500;
   margin: 0 1rem 0 0;
   white-space: pre-wrap;
+
+  @media (min-width: $bp-md) {
+    font-size: 1.2rem;
+  }
 
   .album__title {
     font-style: italic;
