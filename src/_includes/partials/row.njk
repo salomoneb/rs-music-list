@@ -11,16 +11,14 @@
     data-current="{{current}}"
     >
     <div class="album__info">
+      <span class="album__rank">{{album.rank}}.</span>
       <h2 class="album__heading">
-        <span class="album__rank">{{album.rank}}.</span> <span class="album__title">{{album.title}}</span> - {{album.artist}} ({{album.year}})
+        <span class="album__title">{{album.title}}</span> - <span class="album__artist">{{album.artist}} </span> <span class="album__year">({{album.year}})</span>
       </h2>
-      {# <span class="album__listened-icon" aria-label="{% if listened %}Listened icon - album has been listened to{% else %}Listened icon - album has not been listened to{% endif %}">
-        {% if listened %}✅{% else %}❌{% endif %}
-      </span> #}
-      {% if album.rating %}
-        <span class="album__rating" aria-label="Album rating">{{album.rating}}
-        </span>
-      {% endif %}
+    {% if album.rating %}
+      <span class="album__rating" aria-label="Album rating">{{album.rating}}
+      </span>
+    {% endif %}
     </div>
   </div>
   {% if album.thoughts %}

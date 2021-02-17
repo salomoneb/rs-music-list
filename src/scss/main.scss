@@ -11,7 +11,8 @@ $blue: hsl(194deg 87% 64% / 23%);
 
 // BREAKPOINT
 //--------------//
-$bp: 48rem;
+$bp-md: 48rem;
+$bp-sm: 24rem;
 
 // STYLES
 //--------------//
@@ -48,7 +49,7 @@ a {
   font-family: "Lora", serif;
   font-size: 2rem;
 
-  @media (min-width: $bp) {
+  @media (min-width: $bp-md) {
     font-size: 2.5rem;
   }
 }
@@ -58,13 +59,12 @@ a {
   background: var(--current, $blue);
   border: 1px solid currentColor;
   border-radius: 3px;
-  display: inline-block;
   font-family: "Lora", serif;
   font-weight: 700;
   margin: 0;
   padding: 0.5rem;
 
-  @media (min-width: $bp) {
+  @media (min-width: $bp-md) {
     padding: 0.5rem 1rem;
   }
 }
@@ -78,11 +78,6 @@ a {
 // Row container and contents
 .album {
   padding: 1rem;
-
-  &__rank {
-    font-family: "Lora", serif;
-    margin-right: 0.5rem;
-  }
 
   &:nth-child(odd) {
     background: color.change($rowGray, $alpha: 0.4);
@@ -101,33 +96,38 @@ a {
   }
 }
 
-// The top row
+// The album top row container
 .album__info {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  align-items: baseline;
+  grid-template-columns: 6ch 1fr auto;
+  font-family: "Lora", sans-serif;
 
-  & * {
+  @media (min-width: $bp-sm) {
+    display: grid;
+  }
+
+  & > * {
     font-size: 1.1rem;
 
-    @media (min-width: $bp) {
-      font-size: 1.3rem;
+    @media (min-width: $bp-md) {
+      font-size: 1.2rem;
     }
   }
+}
 
-  .album__heading {
-    margin: 0 1rem 0 0;
-    white-space: pre-wrap;
-    word-break: break-word;
-  }
+.album__rank {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.album__heading {
+  font-weight: 500;
+  margin: 0 1rem 0 0;
+  white-space: pre-wrap;
 
   .album__title {
     font-style: italic;
-  }
-
-  .album__listened-icon {
-    font-style: normal;
-    margin-left: auto;
+    word-break: break-word;
   }
 }
 
@@ -151,7 +151,7 @@ a {
   p {
     font-size: 1rem;
 
-    @media (min-width: $bp) {
+    @media (min-width: $bp-md) {
       font-size: 1.1rem;
     }
   }
