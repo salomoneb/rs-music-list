@@ -7,7 +7,7 @@ $textColor: #333;
 $linkColor: #2a74b3;
 $rowGray: #ddd;
 $green: hsl(126deg 72% 80% / 40%);
-$blue: hsl(194deg 87% 64% / 23%);
+$blue: hsl(194deg 96% 79% / 23%);
 
 // BREAKPOINT
 //--------------//
@@ -57,14 +57,17 @@ a {
 // "Currently Listening" box
 .album__current {
   background: var(--current, $blue);
+  background: $blue;
   border: 1px solid currentColor;
   border-radius: 3px;
   font-family: "Lora", serif;
+  // font-size: 1.1rem;
   font-weight: 700;
   margin: 0;
   padding: 0.5rem;
 
   @media (min-width: $bp-md) {
+    // font-size: 1.2rem;
     padding: 0.5rem 1rem;
   }
 }
@@ -100,13 +103,13 @@ a {
 .album__info {
   align-items: baseline;
   grid-template-columns: 6ch 1fr auto;
-  font-family: "Lora", sans-serif;
 
   @media (min-width: $bp-sm) {
     display: grid;
   }
 
-  & > * {
+  & > *:not(.album__thoughts) {
+    font-family: "Lora", sans-serif;
     font-size: 1.1rem;
 
     @media (min-width: $bp-md) {
@@ -132,7 +135,8 @@ a {
 }
 
 .album__thoughts {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  grid-column: 2;
 
   &-summary {
     cursor: pointer;

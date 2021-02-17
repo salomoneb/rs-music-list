@@ -13,19 +13,22 @@
     <div class="album__info">
       <span class="album__rank">{{album.rank}}.</span>
       <h2 class="album__heading">
-        <span class="album__title">{{album.title}}</span> - <span class="album__artist">{{album.artist}} </span> <span class="album__year">({{album.year}})</span>
+        <span class="album__title">{{album.title}}</span> - <span class="album__artist">{{album.artist}}
+        </span>
+        <span class="album__year">({{album.year}})</span>
       </h2>
-    {% if album.rating %}
-      <span class="album__rating" aria-label="Album rating">{{album.rating}}
-      </span>
-    {% endif %}
+      {% if album.rating %}
+        <span class="album__rating" aria-label="Album rating">{{album.rating}}
+        </span>
+      {% endif %}
+
+      {% if album.thoughts %}
+        <details class="album__thoughts">
+          <summary class="album__thoughts-summary">What did we think?</summary>
+          <p class="album__thoughts-text">{{album.thoughts | safe}}</p>
+        </details>
+      {% endif %}
     </div>
   </div>
-  {% if album.thoughts %}
-    <details class="album__thoughts">
-      <summary class="album__thoughts-summary">What did we think?</summary>
-      <p class="album__thoughts-text">{{album.thoughts | safe}}</p>
-    </details>
-  {% endif %}
 </li>
 {% endmacro %}
