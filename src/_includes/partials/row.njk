@@ -13,9 +13,7 @@
     <div class="album__info">
       <span class="album__rank">{{album.rank}}.</span>
       <h2 class="album__heading">
-        <span class="album__title">{{album.title}}</span> - <span class="album__artist">{{album.artist}}
-        </span>
-        <span class="album__year">({{album.year}})</span>
+        <span class="album__title">{{album.title}}</span> - {{album.artist}} ({{album.year}})
       </h2>
       {% if album.rating %}
         <span class="album__rating" aria-label="Album rating">{{album.rating}}
