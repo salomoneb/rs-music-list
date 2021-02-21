@@ -36,7 +36,7 @@ class SearchInput extends HTMLElement {
     this.innerHTML = `
       <div class="search">
         <label class="search__label sr-only" for="search">Search:</label>
-        <input type="text" name="search__input" class="search__input" id="search">
+        <input type="text" name="search__input" class="search__input" id="search" placeholder="Search">
       </div>
     `;
 
