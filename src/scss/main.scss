@@ -1,13 +1,9 @@
-@use "fonts";
 @use "sass:color";
-
-// COLORS
-//--------------//
-$textColor: #333;
-$linkColor: #2a74b3;
-$rowGray: #ddd;
-$green: hsl(126deg 72% 80% / 40%);
-$blue: hsl(194deg 96% 79% / 23%);
+@use "fonts";
+@use "colors";
+@use "mixins";
+@import "select-filter";
+@import "search-input";
 
 // BREAKPOINT
 //--------------//
@@ -17,10 +13,10 @@ $bp-sm: 24rem;
 // STYLES
 //--------------//
 :root {
-  --text: #{$textColor};
-  --link: #{$linkColor};
-  --listened: #{$green};
-  --current: #{$blue};
+  --text: #{colors.$textColor};
+  --link: #{colors.$linkColor};
+  --listened: #{colors.$green};
+  --current: #{colors.$blue};
 }
 
 *,
@@ -30,7 +26,7 @@ $bp-sm: 24rem;
 }
 
 body {
-  color: $textColor;
+  color: colors.$textColor;
   font-family: "Source Sans Pro", sans-serif;
   margin: 0;
 }
@@ -42,7 +38,15 @@ main {
 }
 
 a {
-  color: $linkColor;
+  color: colors.$linkColor;
+}
+
+select {
+  cursor: pointer;
+}
+
+.input {
+  @include mixins.input-base();
 }
 
 .site-heading {
@@ -56,8 +60,8 @@ a {
 
 // "Currently Listening" box
 .album__current {
-  background: var(--current, $blue);
-  background: $blue;
+  background: var(--current, colors.$blue);
+  background: colors.$blue;
   border: 1px solid currentColor;
   border-radius: 3px;
   font-family: "Lora", serif;
@@ -82,7 +86,7 @@ a {
   padding: 1rem;
 
   &:nth-child(odd) {
-    background: color.change($rowGray, $alpha: 0.4);
+    background: color.change(colors.$rowGray, $alpha: 0.4);
   }
 
   &:not(:last-child) {
@@ -90,11 +94,11 @@ a {
   }
 
   &.listened {
-    background: var(--listened, $green);
+    background: var(--listened, colors.$green);
   }
 
   &.current {
-    background: var(--current, $blue);
+    background: var(--current, colors.$blue);
   }
 }
 
@@ -194,6 +198,3 @@ search-input {
   display: block;
   margin: 1rem 0;
 }
-
-@import "select-filter";
-@import "search-input";

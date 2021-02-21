@@ -1,0 +1,9 @@
+@use "sass:color";
+
+$textColor: #333;
+$linkColor: #2a74b3;
+$rowGray: #ddd;
+$inputBorder: color.scale($rowGray, $lightness: -25%);
+$shadow: color.change($textColor, $alpha: 0.05);
+$green: hsl(126deg 72% 80% / 40%);
+$blue: hsl(194deg 96% 79% / 23%);

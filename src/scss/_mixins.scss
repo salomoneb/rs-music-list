@@ -1,0 +1,14 @@
+@use "fonts";
+@use "colors";
+
+@mixin input-base {
+  appearance: none;
+  border: 1px solid colors.$inputBorder;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 1px colors.$shadow;
+  color: colors.$textColor;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 0.6rem;
+  width: 100%;
+}
