@@ -42,6 +42,11 @@ select {
   cursor: pointer;
 }
 
+.filters-placeholder {
+  // Reduce layout shift
+  min-height: 5.95rem;
+}
+
 .input {
   @include mixins.input-base();
 }
