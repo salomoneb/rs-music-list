@@ -62,6 +62,7 @@ select {
 .album__current {
   background: var(--current, colors.$blue);
   background: colors.$blue;
+  border-left: 0.25rem solid colors.$linkColor;
   border-radius: 3px;
   font-family: "Lora", serif;
   font-weight: 700;
