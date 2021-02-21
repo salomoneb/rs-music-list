@@ -2,13 +2,10 @@
 @use "fonts";
 @use "colors";
 @use "mixins";
+@use "breakpoints";
+
 @import "select-filter";
 @import "search-input";
-
-// BREAKPOINT
-//--------------//
-$bp-md: 48rem;
-$bp-sm: 24rem;
 
 // STYLES
 //--------------//
@@ -53,7 +50,7 @@ select {
   font-family: "Lora", serif;
   font-size: 2rem;
 
-  @media (min-width: $bp-md) {
+  @media (min-width: breakpoints.$bp-md) {
     font-size: 2.5rem;
   }
 }
@@ -69,7 +66,7 @@ select {
   margin: 0;
   padding: 0.5rem;
 
-  @media (min-width: $bp-md) {
+  @media (min-width: breakpoints.$bp-md) {
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
   }
@@ -108,7 +105,7 @@ select {
   grid-template-columns: 6ch 1fr auto;
   grid-column-gap: 0.5rem;
 
-  @media (min-width: $bp-sm) {
+  @media (min-width: breakpoints.$bp-sm) {
     display: grid;
   }
 
@@ -128,7 +125,7 @@ select {
   margin: 0 1rem 0 0;
   white-space: pre-wrap;
 
-  @media (min-width: $bp-md) {
+  @media (min-width: breakpoints.$bp-md) {
     font-size: 1.2rem;
   }
 
@@ -159,7 +156,7 @@ select {
   p {
     font-size: 1rem;
 
-    @media (min-width: $bp-md) {
+    @media (min-width: breakpoints.$bp-md) {
       font-size: 1.1rem;
     }
   }
