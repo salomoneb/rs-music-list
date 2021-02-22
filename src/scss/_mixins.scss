@@ -1,6 +1,5 @@
 @use "fonts";
 @use "colors";
-@use "breakpoints";
 
 @mixin input-base {
   appearance: none;
@@ -10,6 +9,7 @@
   color: colors.$textColor;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
-  padding: 0.3rem 0.4rem;
+  padding: 0.5rem 0.6rem;
   width: 100%;
+  -webkit-appearance: none;
 }
