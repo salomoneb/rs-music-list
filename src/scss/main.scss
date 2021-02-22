@@ -107,9 +107,12 @@ select {
 // The album top row container
 .album__info {
   align-items: baseline;
-  display: grid;
   grid-template-columns: 6ch 1fr auto;
   grid-column-gap: 0.5rem;
+
+  @media (min-width: breakpoints.$bp-sm) {
+    display: grid;
+  }
 
   & > *:not(.album__thoughts) {
     font-family: "Lora", sans-serif;
