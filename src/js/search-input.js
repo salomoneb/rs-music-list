@@ -29,6 +29,10 @@ class SearchInput extends HTMLElement {
       }
     }
 
+    if (!filteredHtml.length) {
+      filteredHtml = `<li>No results for ${e.target.value}</li>`;
+    }
+
     this.albumsList.innerHTML = filteredHtml;
   }
 
