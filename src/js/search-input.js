@@ -30,7 +30,7 @@ class SearchInput extends HTMLElement {
     }
 
     if (!filteredHtml.length) {
-      filteredHtml = `<li>No results for ${e.target.value}</li>`;
+      filteredHtml = `<li>No results for <span class="search-term">${e.target.value}</span></li>`;
     }
 
     this.albumsList.innerHTML = filteredHtml;
