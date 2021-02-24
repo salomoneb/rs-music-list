@@ -30,7 +30,10 @@ class SearchInput extends HTMLElement {
     }
 
     if (!filteredHtml.length) {
-      filteredHtml = `<li>No results for <span class="search-term">${e.target.value}</span></li>`;
+      const RE = /(<([^>]+)>)/gi;
+      const strippedQuery = e.target.value.replace(RE, "");
+
+      filteredHtml = `<li>No results for <span class="search-term">${strippedQuery}</span></li>`;
     }
 
     this.albumsList.innerHTML = filteredHtml;
