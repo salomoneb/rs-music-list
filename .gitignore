@@ -3,5 +3,6 @@
 *.DS_Store
 dist
 node_modules
+src/_data/spreadsheet.json
 src/token.json
 src/credentials.json

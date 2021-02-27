@@ -26,6 +26,13 @@ class SelectFilter extends HTMLElement {
       </div>
     `;
 
+    const customLoadedEvent = new CustomEvent("customLoaded", {
+      detail: {
+        selector: "#filter-placeholder",
+      },
+    });
+    document.dispatchEvent(customLoadedEvent);
+
     this.afterRender();
   }
 
@@ -39,7 +46,7 @@ class SelectFilter extends HTMLElement {
     // const searchParams = new URLSearchParams(url.search);
     // const filterVal = searchParams.get("filter");
 
-    this.selectEl = document.querySelector(".filter__select");
+    this.selectEl = document.querySelector("#filter");
 
     // if (filterVal && (filterVal === "listened" || filterVal === "unlistened")) {
     //   const lowercaseVal = filterVal.toLowerCase();

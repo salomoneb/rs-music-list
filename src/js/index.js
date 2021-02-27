@@ -1,4 +1,3 @@
-import SelectFilter from "./select-filter.js";
-import SearchInput from "./search-input.js";
-
-export { SelectFilter, SearchInput };
+document.addEventListener("customLoaded", (e) => {
+  document.querySelector(e.detail.selector).hidden = true;
+});

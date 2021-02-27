@@ -11,15 +11,38 @@ layout: base
   </p>
 </div>
 
+<noscript>
+  <style>
+    .filters {
+      display: none;
+    }
+  </style>
+</noscript>
 <div class="filters">
+  {# Placeholders #}
+  <div class="filter" id="filter-placeholder">
+    <label class="filter__label" for="filter">Filter by:</label>
+    <select class="filter__select" name="filter__select">
+      <option value="all" selected>All</option>
+      <option value="listened">Listened</option>
+      <option value="unlistened">Unlistened</option>
+    </select>
+  </div>
+  <div class="search" id="search-placeholder">
+    <label class="search__label sr-only" for="search">Search:</label>
+    <input type="text" name="search__input" class="search__input" placeholder="Search">
+  </div>
+
+  {# Actual Components #}
   <select-filter></select-filter>
   <search-input></search-input>
 </div>
 
-<p class="album__current">🎧 Currently listening to: <a class="album__current-anchor" href="#{{currentAlbum | slug}}">{{ currentAlbum }}</a></p>
+<p class="album__current">🎧 Currently listening to: <a class="album__current-anchor" href="#{{currentAlbum | slug}}">{{ currentAlbum }}</a>
+</p>
 <ul class="album__list" data-filter="all">
-{%- for row in spreadsheet[0] %}
-  {% import "partials/row.njk" as rowPartial %}
-  {{ rowPartial.album(row, currentAlbum) }}
-{% endfor %}
+  {%- for row in spreadsheet[0] %}
+    {% import "partials/row.njk" as rowPartial %}
+    {{ rowPartial.album(row, currentAlbum) }}
+  {% endfor %}
 </ul>

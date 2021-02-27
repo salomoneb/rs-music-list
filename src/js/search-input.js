@@ -3,6 +3,7 @@ class SearchInput extends HTMLElement {
     super();
 
     this.allNodes = new Map();
+    this.searchTermNode;
 
     document.querySelectorAll(".album").forEach((album) => {
       const rank = album.dataset.rank;
@@ -29,14 +30,13 @@ class SearchInput extends HTMLElement {
       }
     }
 
-    if (!filteredHtml.length) {
-      const RE = /(<([^>]+)>)/gi;
-      const strippedQuery = e.target.value.replace(RE, "");
-
-      filteredHtml = `<li>No results for <span class="search-term">${strippedQuery}</span></li>`;
-    }
-
     this.albumsList.innerHTML = filteredHtml;
+
+    if (!filteredHtml.length) {
+      this.albumsList.innerHTML = `<li>No results for <span class="search-term"></span></li>`;
+
+      document.querySelector(".search-term").textContent = e.target.value;
+    }
   }
 
   render() {
@@ -47,11 +47,18 @@ class SearchInput extends HTMLElement {
       </div>
     `;
 
+    const customLoadedEvent = new CustomEvent("customLoaded", {
+      detail: {
+        selector: "#search-placeholder",
+      },
+    });
+    document.dispatchEvent(customLoadedEvent);
+
     this.afterRender();
   }
 
   afterRender() {
-    this.selectEl = document.querySelector(".search__input");
+    this.selectEl = document.querySelector("#search");
     this.albumsList = document.querySelector(".album__list");
     this.selectEl.addEventListener("input", (e) => {
       this.handleInput(e);
