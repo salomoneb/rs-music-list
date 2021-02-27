@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run sass && eleventy",
+    "build": "npm run fetch-data && npm run sass && eleventy",
     "start": "npm-run-all sass --parallel watch:*",
+    "fetch-data": "node ./src/scripts/spreadsheet.js",
     "sass": "sass src/scss/main.scss dist/css/main.css --no-source-map",
     "watch:sass": "npm run sass -- --watch",
     "watch:eleventy": "eleventy --serve "

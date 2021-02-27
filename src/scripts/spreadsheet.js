@@ -1,20 +1,40 @@
+const fs = require("fs");
+const path = require("path");
 const sheets = require("../providers/auth");
 
-const spreadsheetData = new Promise((resolve, reject) => {
+/**
+ * This function gets our spreadsheet data and writes it to a JSON file.
+ * It runs only when the site is built, which is when the "Publish"
+ * button is pushed on the spreadsheet.
+ */
+(function () {
+  // Get the data
   sheets.spreadsheets.values.batchGet(
     {
       spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
       ranges: ["A1:G501", "K3:K3"],
     },
     (err, res) => {
-      if (err) reject(err);
+      if (err) {
+        throw new Error(`Error connecting to spreadsheet - ${err}`);
+      }
+
+      // Clean the data
       const [albumData, currentAlbumData] = res.data.valueRanges;
       const currentAlbumString = handleCurrentAlbum(currentAlbumData.values);
       const albumJson = handleAlbumData(albumData.values);
-      resolve([albumJson, currentAlbumString]);
+      const parsedData = JSON.stringify([albumJson, currentAlbumString]);
+
+      // Write the data to a file
+      const dataPath = path.resolve(__dirname, "../_data", "spreadsheet.json");
+      fs.writeFile(dataPath, parsedData, (err) => {
+        if (err) {
+          throw new Error(`Error writing JSON to file - ${err}`);
+        }
+      });
     }
   );
-});
+})();
 
 /**
  * Cleaning handler for current album name

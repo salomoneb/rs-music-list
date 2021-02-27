@@ -128,7 +128,6 @@ select {
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0 1rem 0 0;
-  white-space: pre-wrap;
 
   @media (min-width: breakpoints.$bp-md) {
     font-size: 1.2rem;
@@ -150,7 +149,6 @@ select {
 
   &-text {
     margin-bottom: 0;
-    white-space: pre-wrap;
   }
 }
 
