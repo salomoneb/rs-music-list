@@ -1,7 +1,7 @@
 {% macro album(album, currentAlbum) %}
   {% set listened = album.listened %}
   {% set current = currentAlbum == album.title %}
-  <li class="album {{'current' if current}} {{'listened' if listened}}"
+  <li class="album{{' current' if current}}{{' listened' if listened}}"
     id="{{album.title | slug}}"
     data-listened="{{listened}}"
     data-rank="{{album.rank}}"
