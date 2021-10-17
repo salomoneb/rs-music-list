@@ -12,7 +12,6 @@ const oauth2Client = new OAuth2(
 oauth2Client.setCredentials({
   access_token: process.env.GOOGLE_CLIENT_SECRET,
   refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
-  expiry_date: process.env.GOOGLE_EXPIRY_DATE,
 });
 
 const sheets = google.sheets({
